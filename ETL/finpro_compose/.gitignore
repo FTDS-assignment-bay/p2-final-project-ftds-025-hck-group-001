@@ -1,1 +1,5 @@
 logs
+plugins
+Finpro_data_raw.csv
+Finpro_data_clean.csv
+test.ipynb
