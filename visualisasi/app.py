@@ -1,3 +1,4 @@
+# app.py
 import streamlit as st
 import eda
 import prediction
@@ -7,7 +8,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 # Logo
-st.sidebar.image('logo.svg', use_column_width=True)
+st.sidebar.image('logo.png', use_container_width=True)
 
 # CSS
 st.markdown("""
@@ -38,7 +39,6 @@ st.markdown("""
         }
             
     </style>
-            
 """, unsafe_allow_html=True)
 
 # Sidebar
@@ -59,27 +59,36 @@ elif prediction_button:
 
 # Content
 if st.session_state.selected_menu == "Home":
-
-    #Load data
     df = pd.read_csv('DatosPrueba_clean.csv')
 
-    # Title of the application
     st.title("🛡️ Welcome to Fraudtotype")
     st.subheader("Application designed to prevent potential fraud activities")
 
-    #Image
-    # image = Image.open("fraud-detection-system.jpg")
-    # st.image(image)
+    # image
+    image = Image.open('fraud-detection.png')
+    st.image(image, caption='', use_container_width=True)
 
     st.markdown('---')
 
-    # Sample column descriptions (you can adjust this based on the actual dataset)
+    # Section 1: Project Introduction
+    st.markdown("### 📌 Project Introduction")
+    st.write("""
+    Fraudtotype is a smart application designed to analyze and predict potential fraud activities. By combining transaction pattern analysis with machine learning technology, Fraudtotype helps businesses identify suspicious behavior before it causes significant losses.
+    """)
+
+    # Section 2: Objective
+    st.markdown("### 🎯 Objective")
+    st.write("""
+    The main objective is to build a reliable fraud detection model using historical credit card transaction data. 
+    By identifying fraud patterns, we aim to reduce losses and protect customers.
+    """)
+
+    # Section 3: Dataset
     column_data = {
         'Column Name': ['Trans_date_trans_time', 'Cc_num', 'Merchant', 'Category', 'Amt', 
                         'First', 'Last', 'Gender', 'Street', 'City', 'State', 'Zip',
                         'Lat', 'Long', 'City_pop', 'Job', 'Dob', 'Trans_num', 'Unix_time',
-                        'Merch_lat', 'Merch_long', 'Is_fraud'
-                    ],
+                        'Merch_lat', 'Merch_long', 'Is_fraud'],
         'Description': [
             'Timestamp of the transaction (date and time)',
             'Unique customer identification number',
@@ -102,33 +111,45 @@ if st.session_state.selected_menu == "Home":
             'Transaction timestamp (Unix format)',
             'Merchant location (latitude)',
             'Merchant location (longitude)',
-            'Fraudulent transaction indicator (1 = fraud, 0 = legitimate). This is the target variable for classification purposes'
+            'Fraudulent transaction indicator'
         ]
     }
-
-    # Create a DataFrame from the dictionary
     df_columns = pd.DataFrame(column_data)
-
-    # Display the DataFrame in Streamlit
-    st.title("📊 Dataset Column Descriptions")
+    st.markdown("### 📊 Dataset Descriptions")
     st.write("Below is the description of each column in the dataset:")
-
-    # Display the table
     st.dataframe(df_columns)
-    
 
+    # Section 4: Tools and Libraries
+    st.markdown("### 🛠️ Tools and Libraries")
+    st.write("""
+    - Python: For data preprocessing, modeling, and deployment
+    - Pandas: For data manipulation and analysis
+    - Numpy: For numerical operations and array handling
+    - Matplotlib & Seaborn: For data visualization
+    - Scikit-learn: Pipeline RandomForestClassifier, LogisticRegression, GridSearchCV
+    - GridSearchCV: For hyperparameter tuning
+    - Pickle : For model saving
+    """)
 
+    # Section 4: Modeling Algorithms
+    st.markdown("### 🧠 Models Used")
+    st.write("""
+    We experimented with several classification models:
+    - Logistic Regression
+    - Random Forest Classifier
+    - GridSearchCV for hyperparameter tuning
+    - Target Encoding for categorical features
+    - Undersampling to address class imbalance
+    """)
 
+    # Section 5: Model Performance
+    st.markdown("### 🎯 Evaluation Results")
+    st.write("""
+    Based on classification reports and cross-validation:
+    - Recall: 98%
+    - Hyperparameter tuning using `GridSearchCV`
+    - Final model chosen: `Random Forest Classifier with Hyperparameter Tuning`
+    """)
 
-
-
-
-
-
-
-
-
-elif st.session_state.selected_menu == "Exploratory Data Analysis":
-    eda.run()
 elif st.session_state.selected_menu == "Prediction":
-    st.title("Documentation")
+    prediction.run()

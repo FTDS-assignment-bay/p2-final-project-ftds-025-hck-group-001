@@ -2,92 +2,69 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# with open('model_lg.pkl', 'rb') as model:
-#     model = pickle.load(model)
+# Load model
+with open('best_random_forest_model_ian.pkl', 'rb') as file:
+    best_model = pickle.load(file)
 
 def run():
-  
-    with st.form('bank_form'):
+    # Load dataset
+    df = pd.read_csv("DatosPrueba_clean.csv")
 
-        #Age
-        age = st.number_input('Age: ', min_value = 18, max_value = 100, value = 30, help = 'Isi usia user')
-
-        #Marital
-        marital = st.selectbox('Marital : ', ('married', 'single marital', 'divorce'), index = 0)
-
-        #Education
-        education = st.selectbox('Education : ', ('primary', 'secondary', 'tertiary', 'unknown'), index = 0)
-
-        #Balance
-        balance = st.number_input('Balance: ', min_value = 0, value = 0, help = 'Isi usia user')
-
-        #Loan
-        loan = st.selectbox('Loan : ', ('yes', 'no'), index = 0)
-
-        #Housing Loan
-        housing = st.selectbox('Housing Loan : ', ('yes', 'no'), index = 0)
-
-        #Contact
-        contact = st.selectbox('Communication type : ', ('cellular', 'telephone', 'unknown'), index = 0)
-        
-        #Duration
-        duration = st.number_input('Last contact duration: ', min_value = 0, value = 0, help = 'Isi usia user')
-
-        #Campaign
-        campaign = st.number_input('Number of marketing team contact: ', min_value = 0, value = 0, help = 'Isi usia user')
-
-        #Previous
-        previous = st.number_input('Number of marketing team contact before: ', min_value = 0, value = 0, help = 'Isi usia user')
-
-        #Outcome
-        outcome = st.selectbox('Outcome of the previous marketing campaign: ', ('failure', 'nonexistent', 'unknown', 'success'), index = 0)
-
-        st.markdown('---')
-
-        #High Skill Job
-        job_high_skill = st.selectbox('High Skill Job : ', (1, 0), index = 1)
-
-        #High Skill Job
-        job_low_skill = st.selectbox('Low Skill Job : ', (1, 0), index = 1)
-        
-        #High Skill Job
-        job_no_skill = st.selectbox('No Skill Job : ', (1, 0), index = 1)
-
-        #Submit button
-        submitted = st.form_submit_button('Predict')
-    
-    #Data Inference
-    data_inf = {
-        'age' : age,
-        'marital' : marital,
-        'education' : education,
-        'balance' : balance,
-        'housing' : housing,
-        'loan' : loan,
-        'contact' : contact,
-        'duration' : duration,
-        'campaign' : campaign,
-        'previous' : previous,
-        'outcome' : outcome,
-        'job_high_skill' : job_high_skill,
-        'job_low_skill' : job_low_skill,
-        'job_no_skill' : job_no_skill
+    # Map state abbreviations to full names
+    us_state_names = {
+        'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+        'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',
+        'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois',
+        'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana',
+        'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota',
+        'MS': 'Mississippi', 'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+        'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+        'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon',
+        'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota',
+        'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia',
+        'WA': 'Washington', 'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming'
     }
 
-    data_inf = pd.DataFrame([data_inf])
+    df['state_full'] = df['state'].map(us_state_names)
+    state_list = df['state_full'].dropna().unique().tolist()
+    state_list.sort()
+    category_map = {cat.replace('_', ' ').title(): cat for cat in df['category'].dropna().unique()}
+    category_list = sorted(category_map.keys())
+
+    st.title("🔍 Fraud Prediction Form")
+
+    with st.form("fraud_form"):
+        trans_hour = st.number_input('Transaction Hour (0-23):', min_value=0, max_value=23, value=0, help = 'Input transaction hour')
+        amt = st.number_input('Transaction Amount ($):', min_value=0.0, value=0.0, step=1.0, help = 'Input transaction amount')
+        age = st.number_input('Customer Age:', min_value=0, max_value=120, value=0, help = 'Input user age')
+        category_label = st.selectbox('Transaction Category:', category_list, help = 'Input transaction category')
+        state_full = st.selectbox('Customer State:', state_list, help = 'Input user state')
+
+        submitted = st.form_submit_button('Predict')
+
+    # Reverse maps
+    reverse_state_map = {v: k for k, v in us_state_names.items()}
+    state = reverse_state_map.get(state_full)
+    category = category_map.get(category_label)
+
+    # Inference DataFrame
+    data_inf = pd.DataFrame([{
+        'trans_hour': trans_hour,
+        'amt': amt,
+        'age': age,
+        'category_label': category,
+        'state_full': state
+    }])
+
+    st.write("### 🔎 Input Summary")
     st.dataframe(data_inf)
-    
-    st.write('### Has the client subscribed a term deposit?')
 
     if submitted:
-        # Prediction using saved models
-        y_pred_inf = model.predict(data_inf)
+        prediction_result = best_model.predict(data_inf)[0]
+        result = "🟥 Fraud Detected!" if prediction_result == 1 else "✅ Legitimate Transaction"
 
-        # Convert prediction results to text
-        result = "Subscribed" if int(y_pred_inf) == 1 else "Not Subscribed"
-
-        # Show Results
-        st.write(result)
+        st.subheader("Prediction Result")
+        st.success(result) if prediction_result == 0 else st.error(result)
 
 if __name__ == '__main__':
     run()
