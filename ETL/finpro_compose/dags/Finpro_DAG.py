@@ -47,7 +47,7 @@ def clean():
     - Strip spaces and replace underscores with spaces in categorical columns
     - Delete data with 'fraud' string in the 'merchant' column
     - Fix capitalization in "category" column
-    - Export the processed data to a new csv file
+    - Feature Creation: 'Age' and 'Hour'
 
     Output: Cleaned data in CSV format
 
@@ -83,6 +83,13 @@ def clean():
 
     # Fix capitalization in "category" column
     df['category'] = df['category'].str.title()
+
+    # Create a new column 'trans_hour'
+    df['trans_hour'] = df['trans_date_trans_time'].dt.hour
+
+    # Create a new column 'age'
+    latest_date = df['trans_date_trans_time'].max()
+    df['age'] = (latest_date - df['dob']).dt.days // 365
 
     # Export the processed data to a new csv file
     df.to_csv("/opt/airflow/data/Finpro_data_clean.csv", index=False, date_format="%Y-%m-%d %H:%M:%S")
