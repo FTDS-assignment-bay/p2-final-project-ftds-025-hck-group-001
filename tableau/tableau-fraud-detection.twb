@@ -1,0 +1,989 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='DatosPrueba_clean' inline='true' name='federated.10ncv2a174a3wj1gn72kb1x0jk4a' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='DatosPrueba_clean' name='textscan.16pnb651l9fljs1bv11a4190rqgk'>
+            <connection class='textscan' directory='D:/FTDS HACKTIV8/Finpro/p2-final-project-ftds-025-hck-group-001' filename='DatosPrueba_clean.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.16pnb651l9fljs1bv11a4190rqgk' name='DatosPrueba_clean.csv' table='[DatosPrueba_clean#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='datetime' name='trans_date_trans_time' ordinal='0' />
+            <column datatype='integer' name='cc_num' ordinal='1' />
+            <column datatype='string' name='merchant' ordinal='2' />
+            <column datatype='string' name='category' ordinal='3' />
+            <column datatype='real' name='amt' ordinal='4' />
+            <column datatype='string' name='first' ordinal='5' />
+            <column datatype='string' name='last' ordinal='6' />
+            <column datatype='string' name='gender' ordinal='7' />
+            <column datatype='string' name='street' ordinal='8' />
+            <column datatype='string' name='city' ordinal='9' />
+            <column datatype='string' name='state' ordinal='10' />
+            <column datatype='integer' name='zip' ordinal='11' />
+            <column datatype='real' name='lat' ordinal='12' />
+            <column datatype='real' name='long' ordinal='13' />
+            <column datatype='integer' name='city_pop' ordinal='14' />
+            <column datatype='string' name='job' ordinal='15' />
+            <column datatype='date' name='dob' ordinal='16' />
+            <column datatype='string' name='trans_num' ordinal='17' />
+            <column datatype='integer' name='unix_time' ordinal='18' />
+            <column datatype='real' name='merch_lat' ordinal='19' />
+            <column datatype='real' name='merch_long' ordinal='20' />
+            <column datatype='integer' name='is_fraud' ordinal='21' />
+            <column datatype='integer' name='hour' ordinal='22' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trans_date_trans_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[trans_date_trans_time]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>trans_date_trans_time</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cc_num</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cc_num]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>cc_num</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>merchant</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[merchant]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>merchant</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amt</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amt]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>amt</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>first</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[first]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>first</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>last</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[last]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>last</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>street</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[street]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>street</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zip</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[zip]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>zip</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[lat]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>lat</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>long</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[long]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>long</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_pop</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[city_pop]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>city_pop</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>job</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[job]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>job</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dob</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[dob]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>dob</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trans_num</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[trans_num]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>trans_num</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unix_time</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[unix_time]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>unix_time</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>merch_lat</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[merch_lat]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>merch_lat</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>merch_long</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[merch_long]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>merch_long</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_fraud</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_fraud]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>is_fraud</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hour</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hour]</local-name>
+            <parent-name>[DatosPrueba_clean.csv]</parent-name>
+            <remote-alias>hour</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='DatosPrueba_clean.csv' datatype='table' name='[__tableau_internal_object_id__].[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]' role='measure' type='quantitative' />
+      <column caption='Amt' datatype='real' name='[amt]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Cc Num' datatype='integer' name='[cc_num]' role='dimension' type='ordinal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City Pop' datatype='integer' name='[city_pop]' role='measure' type='quantitative' />
+      <column caption='Dob' datatype='date' name='[dob]' role='dimension' type='ordinal' />
+      <column caption='First' datatype='string' name='[first]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Hour' datatype='integer' name='[hour]' role='measure' type='quantitative' />
+      <column caption='Is Fraud' datatype='integer' name='[is_fraud]' role='measure' type='quantitative' />
+      <column caption='Job' datatype='string' name='[job]' role='dimension' type='nominal' />
+      <column caption='Last' datatype='string' name='[last]' role='dimension' type='nominal' />
+      <column aggregation='Avg' caption='Lat' datatype='real' name='[lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Long' datatype='real' name='[long]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Merch Lat' datatype='real' name='[merch_lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column caption='Merch Long' datatype='real' name='[merch_long]' role='measure' type='quantitative' />
+      <column caption='Merchant' datatype='string' name='[merchant]' role='dimension' type='nominal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Street' datatype='string' name='[street]' role='dimension' type='nominal' />
+      <column caption='Trans Date Trans Time' datatype='datetime' name='[trans_date_trans_time]' role='dimension' type='ordinal' />
+      <column caption='Trans Num' datatype='string' name='[trans_num]' role='dimension' type='nominal' />
+      <column caption='Unix Time' datatype='integer' name='[unix_time]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Zip' datatype='integer' default-format='*00000' name='[zip]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/HADYAN~1/AppData/Local/Temp/TableauTemp/#TableauTemp_04jocnz0lidbes1gkh1u41u59gyl.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='04/23/2025 09:50:39 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>trans_date_trans_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[trans_date_trans_time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>trans_date_trans_time</remote-alias>
+              <ordinal>0</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>200881</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cc_num</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cc_num]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cc_num</remote-alias>
+              <ordinal>1</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4303</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>merchant</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[merchant]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>merchant</remote-alias>
+              <ordinal>2</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3214</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>3</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>amt</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[amt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>amt</remote-alias>
+              <ordinal>4</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>41838</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>first</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[first]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>first</remote-alias>
+              <ordinal>5</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1154</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>last</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[last]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>last</remote-alias>
+              <ordinal>6</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1778</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>7</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>street</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[street]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>street</remote-alias>
+              <ordinal>8</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4303</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>city</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[city]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>city</remote-alias>
+              <ordinal>9</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3950</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>10</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>73</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>zip</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[zip]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>zip</remote-alias>
+              <ordinal>11</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4273</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lat</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[lat]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lat</remote-alias>
+              <ordinal>12</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4273</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>long</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[long]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>long</remote-alias>
+              <ordinal>13</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4244</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>city_pop</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[city_pop]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>city_pop</remote-alias>
+              <ordinal>14</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3733</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>job</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[job]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>job</remote-alias>
+              <ordinal>15</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1665</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dob</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[dob]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dob</remote-alias>
+              <ordinal>16</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>4244</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>trans_num</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[trans_num]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>trans_num</remote-alias>
+              <ordinal>17</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>200881</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>unix_time</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[unix_time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>unix_time</remote-alias>
+              <ordinal>18</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>200881</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>merch_lat</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[merch_lat]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>merch_lat</remote-alias>
+              <ordinal>19</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>200881</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>merch_long</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[merch_long]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>merch_long</remote-alias>
+              <ordinal>20</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>200881</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>is_fraud</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[is_fraud]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>is_fraud</remote-alias>
+              <ordinal>21</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hour</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[hour]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>hour</remote-alias>
+              <ordinal>22</ordinal>
+              <family>DatosPrueba_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Indonesia&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='trans_date_trans_time' />
+        <field-sort-custom-order field='cc_num' />
+        <field-sort-custom-order field='merchant' />
+        <field-sort-custom-order field='category' />
+        <field-sort-custom-order field='amt' />
+        <field-sort-custom-order field='first' />
+        <field-sort-custom-order field='last' />
+        <field-sort-custom-order field='gender' />
+        <field-sort-custom-order field='street' />
+        <field-sort-custom-order field='city' />
+        <field-sort-custom-order field='state' />
+        <field-sort-custom-order field='zip' />
+        <field-sort-custom-order field='lat' />
+        <field-sort-custom-order field='long' />
+        <field-sort-custom-order field='city_pop' />
+        <field-sort-custom-order field='job' />
+        <field-sort-custom-order field='dob' />
+        <field-sort-custom-order field='trans_num' />
+        <field-sort-custom-order field='unix_time' />
+        <field-sort-custom-order field='merch_lat' />
+        <field-sort-custom-order field='merch_long' />
+        <field-sort-custom-order field='is_fraud' />
+        <field-sort-custom-order field='Calculation_-8156863347510038526' />
+        <field-sort-custom-order field='hour' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='DatosPrueba_clean.csv' id='DatosPrueba_clean.csv_66F85F45D861468FA3595C1470EB6A8E'>
+            <properties context=''>
+              <relation connection='textscan.16pnb651l9fljs1bv11a4190rqgk' name='DatosPrueba_clean.csv' table='[DatosPrueba_clean#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='datetime' name='trans_date_trans_time' ordinal='0' />
+                  <column datatype='integer' name='cc_num' ordinal='1' />
+                  <column datatype='string' name='merchant' ordinal='2' />
+                  <column datatype='string' name='category' ordinal='3' />
+                  <column datatype='real' name='amt' ordinal='4' />
+                  <column datatype='string' name='first' ordinal='5' />
+                  <column datatype='string' name='last' ordinal='6' />
+                  <column datatype='string' name='gender' ordinal='7' />
+                  <column datatype='string' name='street' ordinal='8' />
+                  <column datatype='string' name='city' ordinal='9' />
+                  <column datatype='string' name='state' ordinal='10' />
+                  <column datatype='integer' name='zip' ordinal='11' />
+                  <column datatype='real' name='lat' ordinal='12' />
+                  <column datatype='real' name='long' ordinal='13' />
+                  <column datatype='integer' name='city_pop' ordinal='14' />
+                  <column datatype='string' name='job' ordinal='15' />
+                  <column datatype='date' name='dob' ordinal='16' />
+                  <column datatype='string' name='trans_num' ordinal='17' />
+                  <column datatype='integer' name='unix_time' ordinal='18' />
+                  <column datatype='real' name='merch_lat' ordinal='19' />
+                  <column datatype='real' name='merch_long' ordinal='20' />
+                  <column datatype='integer' name='is_fraud' ordinal='21' />
+                  <column datatype='integer' name='hour' ordinal='22' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Jumlah Fraud Berdasarkan State'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='DatosPrueba_clean' name='federated.10ncv2a174a3wj1gn72kb1x0jk4a' />
+          </datasources>
+          <datasource-dependencies datasource='federated.10ncv2a174a3wj1gn72kb1x0jk4a'>
+            <column caption='Is Fraud' datatype='integer' name='[is_fraud]' role='measure' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[is_fraud]' derivation='Sum' name='[sum:is_fraud:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='COUNT([is_fraud])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:state:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[sum:is_fraud:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[sum:is_fraud:qk]' scope='rows' value='Jumlah Fraud' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]' value='true' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[sum:is_fraud:qk]</rows>
+        <cols>[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]</cols>
+      </table>
+      <simple-id uuid='{71E90AFB-BF3F-46E9-AC8E-6B352EED0495}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Jumlah Fraud Berdasarkan State'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='96'>
+            <card type='caption' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.10ncv2a174a3wj1gn72kb1x0jk4a].[none:state:nk]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{E6AB4E4B-9FF5-48B7-B7AD-A8FCE2A547D4}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Jumlah Fraud Berdasarkan State' width='192'>
+      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
+      RU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
